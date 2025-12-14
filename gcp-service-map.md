@@ -1,4 +1,4 @@
-# 🗺️ GCP Service Map — Cloud-Native Streaming Platform (Architecture Blueprint)
+# GCP Service Map — Cloud-Native Streaming Platform (Architecture Blueprint)
 
 This document outlines every **Google Cloud Platform (GCP)** service and its role within the production-grade streaming architecture, modeled after Netflix / Apple TV+.  
 
