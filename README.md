@@ -57,39 +57,3 @@ streaming-platform-gcp-architecture/
 └── notebooks/
     ├── recommendation_model.ipynb      # Vertex AI recommendation demo
     └── analytics_demo.ipynb            # Data insights visualization
-
-## 🏗️ Infrastructure
-
-- **Terraform** for IaC  
-- **Cloud Build** for CI/CD  
-- **Artifact Registry** for containers  
-- **Cloud Logging / Monitoring** for observability  
-- **IAM / Secrets Manager** for security
-
-## 🧠 Key Design Principles
-
-- Event-driven architecture (Pub/Sub)
-- Serverless for stateless microservices
-- Compute Engine / GKE for stateful heavy workloads
-- Multi-region failover design
-- Data-driven personalization (Vertex AI)
-
-## 📊 Data Flow
-
-1. User logs in → Cloud Run Auth Service → Firestore
-2. User starts playback → Playback Service → signed Media CDN URL
-3. Player emits events → Pub/Sub → BigQuery
-4. ML model in Vertex AI updates recommendations
-
-## 🧰 Tech Stack
-
-- GCP (Cloud Run, Firestore, BigQuery, Pub/Sub, Media CDN, Transcoder API)
-- Python / Go / Node.js (backend)
-- React / Next.js (frontend)
-- Terraform / Cloud Build (infra + CI/CD)
-- Vertex AI (machine learning)
-
-## 🧑‍💻 Author
-
-*Ankur Chouhan* — Cloud Architect / Backend Engineer  
-📫 *[LinkedIn / Website / Email]*  
