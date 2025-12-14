@@ -11,6 +11,34 @@ The system simulates a video-on-demand (VOD) platform — similar to Netflix or 
 - Real-time analytics and recommendations
 
 ## 🧩 Architecture Diagram
+streaming-platform-gcp-architecture/
+│
+├── README.md
+├── architecture/
+│   ├── high-level-diagram.png
+│   ├── serverless-vs-compute.png
+│   └── gcp-service-map.md
+│
+├── backend/
+│   ├── auth-service/
+│   ├── catalog-service/
+│   ├── playback-service/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+│
+├── infra/
+│   ├── terraform/
+│   ├── gcp-setup.md
+│   └── ci-cd-pipeline.yaml
+│
+├── data/
+│   ├── firestore-schema.json
+│   ├── pubsub-topics.yaml
+│   └── bigquery-dataset.sql
+│
+└── notebooks/
+    ├── recommendation_model.ipynb
+    └── analytics_demo.ipynb
 
 ![architecture-diagram](architecture/high-level-diagram.png)
 
