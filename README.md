@@ -50,12 +50,15 @@ It’s composed of **seven cooperating layers**, each optimized for cost, perfor
 
 A well-structured repository mirrors the system’s modular design. Each directory represents a distinct concern within the ecosystem.
 
-📁 **architecture/** — System diagrams, topology maps, and design documentation  
-📁 **backend/** — Microservices for authentication, catalog, and playback  
-📁 **infra/** — Infrastructure automation, Terraform modules, and CI/CD pipelines  
-📁 **data/** — Schemas for Firestore, Pub/Sub, and BigQuery  
-📁 **notebooks/** — Vertex AI and analytics notebooks for recommendations and insights  
-📄 **README.md** — Core documentation and architectural overview
+## 🗂️ Folder Overview
+
+📁 **architecture/** — Diagrams & documentation  
+  ↳ [gcp-service-map.md](architecture/gcp-service-map.md) — Full GCP service catalog and responsibilities  
+📁 **backend/** — Microservices (Auth, Catalog, Playback)  
+📁 **infra/** — Terraform, CI/CD pipelines, GCP setup  
+📁 **data/** — Firestore schemas, Pub/Sub topics, BigQuery SQL  
+📁 **notebooks/** — ML and analytics Jupyter notebooks  
+📄 **README.md** — Main documentation
 
 ```bash
 streaming-platform-gcp-architecture/
