@@ -1,6 +1,6 @@
-# Cloud-Native Streaming Platform (Netflix / Apple TV+ Architecture Blueprint)
+# Cloud-Native Streaming Platform (Architecture Blueprint)
 
-This repository presents a **production-grade, cloud-native streaming platform** cloud architecture — inspired by **Netflix** and **Apple TV+**, engineered on **Google Cloud Platform (GCP)**.  
+This repository presents a **production-grade, cloud-native streaming platform** cloud architecture & solutions, engineered on **Google Cloud Platform (GCP)**.  
 
 It exemplifies **enterprise-level system design** blending **serverless scalability**, **stateful compute**, **event-driven data pipelines**, and **machine intelligence** — all orchestrated for **high availability**, **global reach**, and **observability at scale**.
 
