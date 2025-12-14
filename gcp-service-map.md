@@ -19,8 +19,7 @@ Think of the platform as **three stacked layers** connected by data streams and 
 ↓
 [ Data & Intelligence Layer ]
 
-markdown
-Copy code
+
 
 ### 💡 Responsibilities by Layer
 | Layer | Function | Core GCP Services | Notes |
@@ -149,8 +148,6 @@ Vertex AI Training → Endpoint
 ↓
 Recommendation Service → Client UI
 
-yaml
-Copy code
 
 ---
 
