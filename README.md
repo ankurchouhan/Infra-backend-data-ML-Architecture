@@ -34,6 +34,7 @@ A **cloud-native architecture** that unifies:
 | Architecture Type | Description | Link |
 |-------------------|--------------|------|
 | 🌎 **Multi-Cloud (Hybrid)** | Cross-provider architecture integrating all 3 clouds | [Multi-cloud-CI-CD-map.md](map/Multi-cloud-CI-CD-map.md) |
+| 🧭 **Unified Multi-Cloud Architecture** | Detailed unified design document combining AWS, GCP & Azure for hybrid workloads | [Unified-Multi-Cloud-Architecture.md](docs/Unified-Multi-Cloud-Architecture.md) |
 | 🟦 **GCP-Native** | Full compute + serverless stack using GKE, Cloud Run, Cloud SQL, BigQuery | [GCP-native-map.md](map/GCP-native-map.md) |
 | 🟧 **AWS-Native** | CI/CD via CodeBuild/CodePipeline, EKS for compute, Lambda for async workloads | [AWS-native-map.md](map/AWS-native-map.md) |
 | 🟪 **Azure-Native** | AKS, Functions, Azure Pipelines, Synapse Analytics | [AZURE-native-map.md](map/AZURE-native-map.md) |
