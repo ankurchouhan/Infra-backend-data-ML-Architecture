@@ -115,20 +115,80 @@ streaming-platform-gcp-architecture/
 
 
 
+
+
+
 your-project/
 ├─ docker-compose.yml
 ├─ .env
 ├─ .gitignore
 ├─ README.md
 │
-├─ gateway/
-├─ auth-service/
-├─ content-service/
-├─ billing-service/
+├─ gateway/                     # Node.js API Gateway
+│  ├─ Dockerfile
+│  ├─ package.json
+│  └─ src/server.js
+│
+├─ auth-service/                # Python (Flask) Auth
+│  ├─ Dockerfile
+│  ├─ app.py
+│  ├─ requirements.txt
+│  ├─ models.py
+│  └─ config.py
+│
+├─ content-service/             # Go (content API)
+│  ├─ Dockerfile
+│  ├─ main.go
+│  └─ go.mod
+│
+├─ billing-service/             # Java (Spring Boot)
+│  ├─ Dockerfile
+│  ├─ pom.xml
+│  └─ src/main/java/com/example/billing/BillingApp.java
+│
 ├─ database/
+│  ├─ init/                     # SQL init scripts
+│  │  └─ init.sql
+│
 ├─ redis-data/
+│
 ├─ frontend/
-├─ shared/
+│  ├─ users/                    # 🎬 User-UI
+│  │  ├─ Dockerfile
+│  │  ├─ package.json
+│  │  ├─ src/
+│  │  │  └─ App.jsx
+│  │  └─ public/
+│  │     └─ index.html
+│  │
+│  ├─ team/                     # 👥 Team content management
+│  │  ├─ Dockerfile
+│  │  ├─ package.json
+│  │  ├─ src/
+│  │  │  └─ App.jsx
+│  │  └─ public/
+│  │     └─ index.html
+│  │
+│  ├─ dev/                      # 💻 Developer console (API monitoring)
+│  │  ├─ Dockerfile
+│  │  ├─ package.json
+│  │  ├─ src/
+│  │  │  └─ App.jsx
+│  │  └─ public/
+│  │     └─ index.html
+│  │
+│  └─ admin/                    # 🛠️ Admin dashboard
+│     ├─ Dockerfile
+│     ├─ package.json
+│     ├─ src/
+│     │  └─ App.jsx
+│     └─ public/
+│        └─ index.html
+│
+└─ shared/
+|   ├─ ui/                       # Reusable React UI components
+|   ├─ hooks/                    # Shared frontend hooks
+|   └─ utils/                    # Common JS helpers  add this all too in basj scripting
 │
 ├─ infrastructure/                              # 🏗️ DevOps + cloud + third-party
 │  ├─ terraform/
