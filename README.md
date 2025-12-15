@@ -84,11 +84,83 @@ A well-structured repository mirrors the system’s modular design. Each directo
 📄 **README.md** — Main documentation
 
 
-## 🗂️ CI/CD MAP Overview
-📁 **Map/** — Diagrams & documentation  
-↳ Full-Cloud-CI-CD-map.md  - Multiple Cloud Severless & Compute CI / CD
-↳ aws-native-map.md        - AWS Native Cloud CI / CD
-↳ gcp-native-map.md        - GCP Native Cloud CI / CD
+## 🗂️ CI/CD Map Overview
+
+This project uses multiple CI/CD topologies: **multi-cloud**, and **cloud-native per provider**.  
+All the diagrams and flows live in the `map/` directory.
+
+### 📁 `map/` — CI/CD Diagrams & Documentation
+
+- [`map/Full-Cloud-CI-CD-Map.md`](map/Full-Cloud-CI-CD-Map.md)  
+  **Multi-Cloud CI/CD (Compute + Serverless)**  
+  - Covers **AWS + GCP + Azure** end-to-end  
+  - Includes:
+    - Shared Git workflow (GitHub / GitLab)
+    - Terraform-driven infra across all clouds
+    - Container CI/CD (EKS, GKE, AKS)
+    - Serverless CI/CD (Lambda, Cloud Run, Azure Functions)
+    - Third-party integrations (Auth0, Stripe, SendGrid, Datadog, Sentry, Segment, etc.)
+
+- [`map/aws-native-map.md`](map/aws-native-map.md)  
+  **AWS-Native CI/CD**  
+  - Typical flow:
+    - Source: GitHub / CodeCommit  
+    - Build/Test: CodeBuild  
+    - Infra: Terraform (S3 + DynamoDB backend)  
+    - Deploy:
+      - Containers to **EKS** / ECS
+      - Serverless to **Lambda**
+    - Observability: CloudWatch + optional Datadog/Sentry hooks
+
+- [`map/gcp-native-map.md`](map/gcp-native-map.md)  
+  **GCP-Native CI/CD**  
+  - Typical flow:
+    - Source: GitHub / Cloud Source Repositories  
+    - Build/Test: **Cloud Build**  
+    - Infra: Terraform (GCS backend)  
+    - Deploy:
+      - Containers to **GKE**
+      - Serverless to **Cloud Run** / Cloud Functions
+    - Observability: Cloud Monitoring + Cloud Logging
+
+- [`map/azure-native-map.md`](map/azure-native-map.md)  
+  **Azure-Native CI/CD**  
+  - Typical flow:
+    - Source: GitHub / Azure Repos  
+    - Build/Test: **Azure Pipelines**  
+    - Infra: Terraform (Azure Storage backend)  
+    - Deploy:
+      - Containers to **AKS**
+      - Serverless to **Azure Functions**
+    - Observability: Azure Monitor + Log Analytics
+
+---
+
+### 📝 Directory Structure
+
+```bash
+your-project/
+└── map/
+    ├── Full-Cloud-CI-CD-Map.md   # Multi-cloud (AWS + GCP + Azure) CI/CD map
+    ├── aws-native-map.md         # AWS-native CI/CD
+    ├── gcp-native-map.md         # GCP-native CI/CD
+    └── azure-native-map.md       # Azure-native CI/CD
+
+
+            ┌────────────────────────────┐
+            │        CDN / API GW        │
+            └───────────┬────────────────┘
+                        │
+        ┌───────────────┼────────────────────┐
+        │               │                    │
+        v               v                    v
+   [EKS/GKE/AKS]   [Cloud Run/Lambda]   [Azure Functions]
+   (compute pods)  (serverless tasks)    (serverless hooks)
+        │               │                    │
+        ├──► Cloud SQL / RDS / SQL Azure
+        ├──► Redis / Memorystore / Cache
+        └──► S3 / GCS / Blob Storage (media)
+
 
 
 ```bash
