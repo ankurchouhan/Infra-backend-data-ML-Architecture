@@ -84,7 +84,7 @@ This project is released under the **MIT License**, allowing free use and modifi
 
 Unauthorized reproduction or misrepresentation of this work as a proprietary offering is a violation of copyright and intellectual property law.
 
-© [2025] [Ankur Chouhan / YFS/ Alien LLC]. All rights reserved.
+© 2025 Ankur Chouhan /YFS /Alien LLC. All rights reserved.
 
 
 ## 🗂️ Repository Map
