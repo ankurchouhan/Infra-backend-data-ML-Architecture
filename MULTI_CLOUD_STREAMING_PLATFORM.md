@@ -1,147 +1,220 @@
 
-# 🌐 Cloud-Native Streaming Platform
-**Multi-Cloud Compute + Serverless + Data + CI/CD + Cost Optimization**
+# 🌐 Cloud-Native Streaming Platform & 🌍 Production-Hardened
 
-> **Enterprise-grade, production-ready, multi-cloud architecture**
-> Inspired by Netflix / YouTube patterns — engineered for startups to Fortune-500 scale.
+**Unified Multi-Cloud + AWS Global Architecture Blueprint**
+
+> Enterprise-grade, Netflix-style reference architecture  
+> Built for **global scale, real-time workloads, security, resilience, and compliance**
 
 ---
 
 ## 🚀 Executive Overview
 
-This repository showcases a **production-grade, cost-optimized streaming platform** designed for **AWS, GCP, and Azure**.
+This repository delivers a **complete production architecture** that combines:
 
-It demonstrates how to build a **real-time, video-on-demand and analytics system** using containers, serverless workloads, event-driven pipelines, and fully automated CI/CD.
+- **Multi-Cloud Streaming Platform** (AWS, GCP, Azure)
+- **Production-Hardened AWS Global Platform** (Netflix-style multi-region)
 
-**One repository. Three clouds. Full automation.**
+It is designed for teams that **expect failure**, operate under **compliance constraints**, and require **zero-downtime delivery**.
 
 ---
 
-## 📐 Unified Multi-Cloud Architecture Diagram
+## 🧱 Architecture Views (Separated by Concern)
 
-> ✅ Fixed Mermaid syntax — renders correctly on GitHub
+This repository provides **four distinct architecture views**:
+
+1. **Runtime Architecture**
+2. **Data & Analytics Architecture**
+3. **CI/CD & IaC Architecture**
+4. **Active-Active Global Traffic Architecture**
+
+Each diagram renders natively in GitHub using Mermaid.
+
+---
+
+# 🟦 1. Runtime Architecture (Request Path)
+
+```mermaid
+flowchart TB
+    User[Users]
+    CDN[CDN Tier<br/>CloudFront / Cloud CDN / Front Door]
+    WAF[WAF + DDoS]
+    API[API Gateway<br/>Lambda / Cloud Run / Functions]
+
+    subgraph Regions
+        ALB1[ALB us-east-1]
+        ALB2[ALB eu-west-1]
+
+        subgraph Compute
+            EKS[EKS]
+            GKE[GKE]
+            AKS[AKS]
+        end
+    end
+
+    User --> CDN --> WAF --> API
+    API --> ALB1
+    API --> ALB2
+    ALB1 --> Compute
+    ALB2 --> Compute
+```
+
+**Purpose**
+- Tier-0 global entry
+- Tier-1 regional isolation
+- Tier-2 service routing
+
+---
+
+# 🟩 2. Data & Analytics Architecture
+
+```mermaid
+flowchart TB
+    App[Application Services]
+
+    Stream[Event Streaming<br/>PubSub / Kinesis / Event Hubs]
+    Process[Stream Processing<br/>Dataflow / Glue / Stream Analytics]
+    Warehouse[Analytics Warehouse<br/>BigQuery / Redshift / Synapse]
+    ML[ML Platforms<br/>Vertex AI / SageMaker / Azure ML]
+
+    SQL[Transactional DBs]
+    Cache[Redis]
+    Storage[Object Storage]
+
+    App --> SQL
+    App --> Cache
+    App --> Storage
+
+    App --> Stream --> Process --> Warehouse --> ML
+```
+
+**Purpose**
+- Real-time analytics
+- Cost-efficient batch + streaming
+- ML-driven personalization
+
+---
+
+# 🟨 3. CI/CD & Infrastructure Automation
+
+```mermaid
+flowchart TB
+    Dev[Developer]
+    Git[GitHub]
+    CI[CI Pipelines<br/>GitHub Actions / Cloud Build]
+    Registry[Container Registry]
+    IaC[Terraform + Ansible]
+    Deploy[Helm / kubectl]
+
+    Dev --> Git --> CI
+    CI --> Registry
+    CI --> IaC
+    Registry --> Deploy
+    IaC --> Deploy
+```
+
+**Purpose**
+- Full GitOps workflow
+- Immutable deployments
+- Automated rollback
+
+---
+
+# 🟥 4. Active-Active Global Traffic (Optional)
 
 ```mermaid
 flowchart TB
     User[Global Users]
+    DNS[Geo / Latency DNS]
+    RegionA[Region A<br/>Active]
+    RegionB[Region B<br/>Active]
 
-    CDN[Multi-Cloud CDN<br/>CloudFront / Cloud CDN / Front Door]
-    WAF[WAF + DDoS Protection]
+    DBGlobal[Global Database]
+    CacheGlobal[Global Cache]
 
-    API[API Layer<br/>Lambda / Cloud Run / Functions]
+    User --> DNS
+    DNS --> RegionA
+    DNS --> RegionB
 
-    subgraph Kubernetes_Compute
-        GKE[GKE Cluster]
-        EKS[EKS Cluster]
-        AKS[AKS Cluster]
-    end
-
-    Auth[Auth Service]
-    Content[Content Service]
-    Billing[Billing Service]
-
-    SQL[Managed SQL<br/>Cloud SQL / RDS / Azure SQL]
-    Cache[Redis Cache]
-    Storage[Object Storage<br/>S3 / GCS / Blob]
-
-    Stream[Event Streaming<br/>PubSub / Kinesis / Event Hubs]
-    Analytics[Analytics<br/>BigQuery / Redshift / Synapse]
-    ML[ML Platforms<br/>Vertex AI / SageMaker / Azure ML]
-
-    Dev[Developer]
-    Git[GitHub]
-    CI[CI CD Pipelines]
-    Registry[Container Registry]
-    Deploy[Terraform + Helm]
-
-    Obs[Monitoring<br/>CloudWatch / Cloud Monitoring / Azure Monitor]
-    FinOps[Cost Optimization<br/>Budgets + Autoscaling]
-
-    User --> CDN --> WAF --> API
-    API --> Kubernetes_Compute
-
-    Kubernetes_Compute --> Auth
-    Kubernetes_Compute --> Content
-    Kubernetes_Compute --> Billing
-
-    Auth --> SQL
-    Billing --> SQL
-    Content --> Storage
-    Kubernetes_Compute --> Cache
-
-    Content --> Stream --> Analytics --> ML
-
-    Dev --> Git --> CI --> Registry --> Deploy --> Kubernetes_Compute
-
-    Kubernetes_Compute --> Obs
-    Analytics --> Obs
-    FinOps --> Kubernetes_Compute
-    FinOps --> Analytics
+    RegionA --> DBGlobal
+    RegionB --> DBGlobal
+    RegionA --> CacheGlobal
+    RegionB --> CacheGlobal
 ```
 
----
-
-## 🏗️ System Layers
-
-| Layer | Purpose | Technologies |
-|-----|--------|-------------|
-| Edge & CDN | Global delivery | CloudFront, Cloud CDN, Front Door |
-| API | Stateless endpoints | Lambda, Cloud Run, Functions |
-| Compute | Microservices | EKS, GKE, AKS |
-| Data | Storage & cache | SQL, Redis, Object Storage |
-| Analytics | Streaming pipelines | PubSub, Kinesis, Event Hubs |
-| ML | Recommendations | Vertex AI, SageMaker |
-| Observability | Metrics & logs | Prometheus, Grafana, ELK |
-| Automation | IaC & config | Terraform, Ansible |
-| CI/CD | Delivery | GitHub Actions, Cloud Build |
-| FinOps | Cost control | Budgets, autoscaling |
+**Use When**
+- Latency-sensitive apps
+- Read-heavy workloads
+- Global user base
 
 ---
 
-## 🔄 CI/CD Workflow
+## 🧪 Chaos Engineering (All Layers)
 
-1. Developer pushes code
-2. CI builds & tests
-3. Images pushed to registry
-4. Terraform provisions infrastructure
-5. Helm deploys services
-6. Canary or rolling updates
-7. Metrics validate rollout
+| Failure Type | Injection |
+|-------------|-----------|
+| Pod failure | Kill pods |
+| AZ outage | Disable subnets |
+| Region failure | DNS failover |
+| DB failure | Forced failover |
+| Latency | AWS FIS |
 
 ---
 
-## 💰 Cost Optimization Strategy
+## 📊 Compliance Mapping
 
-- Spot and preemptible nodes
-- Aggressive autoscaling
-- Storage lifecycle policies
-- Automated cleanup of idle resources
-- Budget alerts and dashboards
+| Control Area | SOC2 | ISO 27001 | PCI-DSS |
+|-------------|------|-----------|---------|
+| IAM & Access Control | ✔ | ✔ | ✔ |
+| Encryption at Rest | ✔ | ✔ | ✔ |
+| Encryption in Transit | ✔ | ✔ | ✔ |
+| Logging & Monitoring | ✔ | ✔ | ✔ |
+| Change Management | ✔ | ✔ | ✔ |
+| Backup & DR | ✔ | ✔ | ✔ |
+| Network Segmentation | ✔ | ✔ | ✔ |
+
+**Notes**
+- Uses cloud-native controls
+- Audit-ready logging
+- Least-privilege IAM everywhere
+
+---
+
+## 🖼️ PNG / SVG Diagram Exports
+
+All diagrams can be exported using:
+- Mermaid Live Editor
+- VS Code Mermaid plugin
+- CI pipeline diagram export
+
+**Recommended**
+- Export SVG for documentation
+- Export PNG for presentations
+
+---
+
+## 💰 FinOps & Cost Optimization
+
+- Spot / preemptible compute
+- Autoscaling everywhere
+- Storage tiering
+- Idle resource cleanup
+- Budget alerts
 
 Typical savings: **30–70%**
 
 ---
 
-## 🧪 Chaos Engineering
-
-- Kill pods and services
-- Disable zones
-- Inject latency
-- Force database failovers
-- Validate SLO recovery
-
----
-
-## 📁 Repository Structure (Simplified)
+## 📁 Repository Structure
 
 ```text
-streaming-platform/
+repo/
 ├─ frontend/
 ├─ backend/
 ├─ infrastructure/
 │  ├─ terraform/
-│  ├─ ansible/
 │  ├─ kubernetes/
+│  ├─ ansible/
 │  └─ ci-cd/
 ├─ data/
 ├─ docs/
@@ -150,20 +223,16 @@ streaming-platform/
 
 ---
 
-## 💼 Credits & Professional Use
+## 💼 Credits
 
-**Original Architecture Design:**  
-**Ankur Chouhan / Alien LLC / YFS Entertainment**
+**Architecture & Platform Design**  
+Ankur Chouhan — Alien LLC / YFS Entertainment
 
 📧 ankurchouhan@yfsentertainment.com  
 🌐 https://www.yfsentertainment.com
 
 ---
 
-## ⚖️ License & Attribution
+## ⚖️ License
 
 MIT License © 2025 Ankur Chouhan / Alien LLC
-
-Attribution required for commercial or production use.
-Unauthorized redistribution or misrepresentation is prohibited.
-
