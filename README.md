@@ -1,4 +1,5 @@
-# 🌐 Cloud-Native Streaming Platform  
+
+# 🌐 Cloud-Native Streaming Platform
 ### (Multi-Cloud Compute + Serverless + Data + Cost Optimization)
 
 This repository showcases a **production-grade, cost-optimized streaming architecture** engineered for **GCP**, **AWS**, and **Azure**.  
@@ -18,6 +19,7 @@ It’s designed as a **real-time, multi-cloud, video-on-demand system** built fo
 ## 🚀 Overview
 
 A **cloud-native architecture** that unifies:
+
 - 🧱 **Compute** — containerized workloads on GKE / EKS / AKS  
 - 🌀 **Serverless** — event-driven processing with Cloud Run, Lambda, Functions  
 - 📊 **Analytics** — streaming pipelines with Pub/Sub, Kinesis, and Event Hubs  
@@ -25,82 +27,76 @@ A **cloud-native architecture** that unifies:
 - ⚙️ **IaC + CI/CD** — Terraform, Ansible, Cloud Build / CodePipeline / Azure DevOps  
 - 💰 **FinOps** — built-in cost optimization and resource automation  
 
-> “One repository — three clouds — complete automation.”
+> **One repository — three clouds — complete automation.**
 
 ---
 
 ## 🧩 Architecture Blueprints
 
 | Architecture Type | Description | Link |
-|-------------------|--------------|------|
-| 🌎 **Multi-Cloud (Hybrid)** | Cross-provider architecture integrating all 3 clouds | [Multi-cloud-CI-CD-map.md](map/Multi-cloud-CI-CD-map.md) |
-| 🧭 **Unified Multi-Cloud Architecture** | Detailed unified design document combining AWS, GCP & Azure for hybrid workloads | [Unified-Multi-Cloud-Architecture.md](docs/Unified-Multi-Cloud-Architecture.md) |
-| 🟦 **GCP-Native** | Full compute + serverless stack using GKE, Cloud Run, Cloud SQL, BigQuery | [GCP-native-map.md](map/GCP-native-map.md) |
-| 🟧 **AWS-Native** | CI/CD via CodeBuild/CodePipeline, EKS for compute, Lambda for async workloads | [AWS-native-map.md](map/AWS-native-map.md) |
-| 🟪 **Azure-Native** | AKS, Functions, Azure Pipelines, Synapse Analytics | [AZURE-native-map.md](map/AZURE-native-map.md) |
+|------------------|-------------|------|
+| 🌎 Multi-Cloud (Hybrid) | Cross-provider architecture integrating all three clouds | map/Multi-cloud-CI-CD-map.md |
+| 🧭 Unified Multi-Cloud Architecture | Combined AWS, GCP & Azure hybrid workloads | docs/Unified-Multi-Cloud-Architecture.md |
+| 🟦 GCP-Native | GKE, Cloud Run, Cloud SQL, BigQuery | map/GCP-native-map.md |
+| 🟧 AWS-Native | EKS, Lambda, CodePipeline | map/AWS-native-map.md |
+| 🟪 Azure-Native | AKS, Functions, Synapse | map/AZURE-native-map.md |
 
 ---
 
 ## 🧱 Core Documentation
 
 | Category | Description | Link |
-|-----------|--------------|------|
-| **📐 Architecture Overview** | Full cloud design with compute + serverless integration | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
-| **🏗️ Infrastructure (IaC)** | Terraform modules & environments for all clouds | [docs/MULTI_CLOUD_INFRA.md](docs/MULTI_CLOUD_INFRA.md) |
-| **🔁 CI/CD Pipelines** | Cloud Build / CodePipeline / Azure Pipelines integration | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
-| **⚙️ DevOps & Config Mgmt** | Terraform + Ansible + Helm workflows | [docs/DEVOPS_GUIDE.md](docs/DEVOPS_GUIDE.md) |
-| **📊 Data Analytics** | Real-time ingestion → BigQuery / Redshift / Synapse | [docs/DATA_ANALYTICS.md](docs/DATA_ANALYTICS.md) |
-| **🎬 Media Pipeline** | GCS/S3/Blob + CDN + playback microservice flow | [docs/MEDIA_PIPELINE.md](docs/MEDIA_PIPELINE.md) |
-| **🔐 Security** | IAM, Key Vaults, and network security design | [docs/SECURITY.md](docs/SECURITY.md) |
-| **📈 Monitoring & Logging** | Cloud Monitoring, Prometheus, Grafana, ELK | [docs/MONITORING.md](docs/MONITORING.md) |
-| **💰 Cost Optimization** | Auto-scaling, right-sizing, and FinOps practices | [docs/COST_OPTIMIZATION.md](docs/COST_OPTIMIZATION.md) |
+|---------|-------------|------|
+| 📐 Architecture Overview | End-to-end cloud design | docs/ARCHITECTURE.md |
+| 🏗️ Infrastructure (IaC) | Terraform modules for all clouds | docs/MULTI_CLOUD_INFRA.md |
+| 🔁 CI/CD Pipelines | Cloud-native pipelines | docs/DEPLOYMENT.md |
+| ⚙️ DevOps & Config Mgmt | Terraform + Ansible + Helm | docs/DEVOPS_GUIDE.md |
+| 📊 Data Analytics | Streaming & warehousing | docs/DATA_ANALYTICS.md |
+| 🎬 Media Pipeline | Video ingest → CDN | docs/MEDIA_PIPELINE.md |
+| 🔐 Security | IAM & network security | docs/SECURITY.md |
+| 📈 Monitoring & Logging | Metrics & dashboards | docs/MONITORING.md |
+| 💰 Cost Optimization | FinOps practices | docs/COST_OPTIMIZATION.md |
 
 ---
 
 ## 💼 Credits & Professional Use
 
-This cloud architecture blueprint is an original design by **[Ankur Chouhan / Alien LLC]**.  
-It represents years of experience in **multi-cloud architecture, DevOps automation, and cost-optimized design**.
+This cloud architecture blueprint is an original design by  
+**Ankur Chouhan / Alien LLC / YFS Entertainment**.
 
-If you’d like to:
-- 💼 **Use this architecture in your own product or production studio**,  
-- 🧠 **Hire me / my team** for custom cloud design and implementation, or  
-- 🤝 **Collaborate on enterprise cloud systems**,  
-
-please contact:  
-📧 **[ankurchouhan@yfsentertainment.com]**  
-🌐 **[www.yfsentertainment.com]**
+📧 ankurchouhan@yfsentertainment.com  
+🌐 https://www.yfsentertainment.com
 
 ---
 
 ## ⚖️ Licensing & Attribution
 
-This project is released under the **MIT License**, allowing free use and modification **with attribution**.  
+This project is released under the **MIT License**, allowing free use and modification **with attribution**.
 
-> If you build upon or deploy this architecture in a commercial or production setting,  
-> please **credit the original author** and consider a **royalty or consulting agreement**.
+If you deploy or build upon this architecture in a commercial setting:
+- Please credit the original author
+- Consider a consulting or royalty agreement
 
-**Note:** This architecture is independently created and **not affiliated with or endorsed by AWS, Google Cloud, or Microsoft Azure.**
+**Disclaimer:**  
+This work is independently created and **not affiliated with AWS, Google Cloud, or Microsoft Azure**.
 
-Unauthorized reproduction or misrepresentation of this work as a proprietary offering is a violation of copyright and intellectual property law.
+© 2025 Ankur Chouhan / YFS / Alien LLC. All rights reserved.
 
-© 2025 Ankur Chouhan /YFS /Alien LLC. All rights reserved.
-
+---
 
 ## 🗂️ Repository Map
 
-```bash
+```text
 streaming-platform/
 ├─ frontend/                  # React UI (users, team, admin, dev consoles)
 ├─ backend/                   # Auth, Catalog, Playback, Billing microservices
-├─ infrastructure/             # Terraform + Ansible + CI/CD + K8s manifests
-│  ├─ terraform/               # GCP / AWS / Azure modules
-│  ├─ ansible/                 # VM config management
-│  ├─ kubernetes/              # Helm charts, namespaces, ingress
-│  ├─ ci-cd/                   # Cloud Build, CodePipeline, Azure Pipelines, Jenkins
-│  └─ monitoring-logging/      # Prometheus, Grafana, ELK setup
-├─ data/                       # Schemas, pipelines, Pub/Sub, BigQuery models
-├─ docs/                       # Architecture + Infra + CI/CD + Analytics guides
-└─ map/                        # Visual diagrams and CI/CD maps
-
-
+├─ infrastructure/            # Terraform + Ansible + CI/CD + K8s manifests
+│  ├─ terraform/              # GCP / AWS / Azure modules
+│  ├─ ansible/                # VM config management
+│  ├─ kubernetes/             # Helm charts, namespaces, ingress
+│  ├─ ci-cd/                  # Cloud Build, CodePipeline, Azure Pipelines, Jenkins
+│  └─ monitoring-logging/     # Prometheus, Grafana, ELK setup
+├─ data/                      # Schemas, pipelines, analytics models
+├─ docs/                      # Architecture + Infra + CI/CD + Analytics guides
+└─ map/                       # Visual diagrams and CI/CD maps
+```
