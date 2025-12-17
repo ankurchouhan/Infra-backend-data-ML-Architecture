@@ -35,7 +35,7 @@ A **cloud-native architecture** that unifies:
 
 | Architecture Charts | Flow | Analysis |
 |-------------------|--------------|------|
-| 🌎 **Multi-Cloud Architecture Design** | Cross-provider architecture integrating all 3 clouds | [MULTI_CLOUD_STREAMING_PLATFORM.md.md](MULTI_CLOUD_STREAMING_PLATFORM.md) |
+| 🌎 **Chart Flow Design** | Cross-provider architecture all 3 clouds | [MULTI_CLOUD_STREAMING_PLATFORM.md.md](MULTI_CLOUD_STREAMING_PLATFORM.md) |
 
 
 
